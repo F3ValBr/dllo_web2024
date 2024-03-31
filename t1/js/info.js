@@ -1,7 +1,9 @@
+// Funcion para mostrar la imagen en un modal dentro de la informacion del producto
+
 function abrirModal(img) {
     // Obtener el modal
     var modal = document.getElementById("miModal");
-    var modalImg = document.getElementById("img01");
+    var modalImg = document.getElementById("img-prod");
     var captionText = document.getElementById("caption");
     
     modal.style.display = "block";

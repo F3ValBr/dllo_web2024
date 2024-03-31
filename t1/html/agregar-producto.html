@@ -14,11 +14,12 @@
         </div>
         <!-- Formulario para agregar un producto -->
         <div class="container" style="margin-bottom: 14.5%;">
-            <h2 style="text-align: center;">Agrega producto(s) a proveer</h2>
+            <h1 style="text-align: center;">Agrega producto(s) a proveer</h1>
+            <h3 style="text-align: center;">Añada la informacion de lo que desee vender.</h3>
             <div class="formulario">
                 <form method="post">
                     <div class="grupo-input">
-                        <label for="choose-product">Tipo de producto:</label>
+                        <label for="choose-product">Tipo de producto: (*)</label>
                         <select id="choose-product" name="choose-product">
                             <option value="" selected disabled hidden>Seleccionar una opción</option>
                             <option value="frutas">Frutas</option>
@@ -35,37 +36,37 @@
                     </div>
                     <div class="grupo-input">
                         <label for="descripcion">Descripción:</label>
-                        <textarea name="descripcion" id="descripcion" cols="50" rows="4"></textarea>
+                        <textarea name="descripcion" id="descripcion" cols="50" rows="4" placeholder="Añada una descripcion de su producto (max. 200 caracteres)"></textarea>
                     </div>
                     <div class="grupo-input" id="contenedorFotos">
-                        <label for="foto1">Sube fotos relacionadas (mín. 1 - max. 3):</label>
+                        <label for="foto1">Sube fotos relacionadas (mín. 1 - max. 3): (*)</label>
                         <input type="file" id="foto1" name="fotos" accept="image/*" onchange="agregarFotoProducto()" required>
                     </div>
                     <div class="grupo-input">
-                        <label for="selectorRegion">Región:</label>
+                        <label for="selectorRegion">Región: (*)</label>
                         <select id="selectorRegion">
                             <option value="" selected disabled hidden>Seleccione una Región</option>
                             <!-- Las opciones se llenarán con JavaScript -->
                         </select>
                     </div>
                     <div class="grupo-input">
-                        <label for="selectorComuna">Comuna:</label>
+                        <label for="selectorComuna">Comuna: (*)</label>
                         <select id="selectorComuna">
                             <option value="" selected disabled hidden>Seleccione una Comuna</option>
                             <!-- Las opciones se llenarán con JavaScript -->
                         </select>
                     </div>
                     <div class="grupo-input">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" minlength="3" required>
+                        <label for="nombre">Nombre: (*)</label>
+                        <input type="text" id="nombre" name="nombre" minlength="3" placeholder="Escriba su nombre (min. 3 - max. 80 caract.)" required>
                     </div>
                     <div class="grupo-input">
-                        <label for="email">Correo electrónico:</label>
-                        <input id="email" name="email" type="email" required>
+                        <label for="email">Correo electrónico: (*)</label>
+                        <input id="email" name="email" type="email" placeholder="Escriba su correo electrónico (ej.: johndoe@mail.dot)" required>
                     </div>
                     <div class="grupo-input">
                         <label for="phone">Nro. de teléfono:</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="phone" placeholder="Escriba su número de teléfono (ej.: +56912345678)">
                     </div>
                     <div id="form-envio">
                         <button type="button" id="envio">
@@ -74,6 +75,7 @@
                     </div>
                 </form>
             </div>
+
             <!-- Modal de confirmación -->
             <div id="modalConfirmacion" class="modal">
                 <div class="modal-content">
@@ -83,6 +85,7 @@
                 </div>
             </div>
 
+            <!-- Modal de mensaje -->
             <div id="modalModificable" class="modal">
                 <div class="modal-content">
                     <p id="textoModal">Este es un mensaje predeterminado.</p>
@@ -90,6 +93,7 @@
                 </div>
             </div>
 
+            <!-- Modal de redirección -->
             <div id="modalRedireccion" class="modal" style="display: none;">
                 <div class="modal-content">
                     <p>Hemos recibido el registro de producto. Muchas gracias.</p>

@@ -15,10 +15,12 @@ img {
     width: 120px;
     height: auto;
 }
+
 /* Estilo para cambiar el cursor a pointer */
 tr[data-href] {
     cursor: pointer;
 }
+
 /* Estilo para cambio de color al pasar el mouse */
 tr[data-href]:hover {
     background-color: #e7f3fe;
@@ -26,6 +28,6 @@ tr[data-href]:hover {
 
 /* Estilo para celdas de descripción */
 .descripcion-cell {
-    max-width: 450px; /* Ajusta esto según la anchura máxima deseada */
-    word-wrap: break-word; /* Asegura que el texto se ajuste dentro de la celda */
+    max-width: 450px; 
+    word-wrap: break-word; 
 }

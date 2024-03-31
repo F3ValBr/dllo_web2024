@@ -1,3 +1,6 @@
+// Obtencion de datos de data.js
+//import {frutas, verduras, datosRegionComuna} from '../resources/data/data.js';
+
 // Validadores del formulario
 
 const validateDescription = description => {
@@ -57,7 +60,7 @@ const validarFotos = () => {
         }
     });
 
-    // Validar que al menos 1 foto ha sido seleccionada y no más de 3
+    // Validar que al menos 1 foto ha sido seleccionada
     if (fotosVacias === numeroDeFotos) {
         //alert('Por favor, selecciona al menos una foto.');
         return false; // Indica que la validación falló
@@ -136,7 +139,7 @@ const datosRegionComuna = [
         "comunas": ["Valparaíso", "Casablanca", "Concón", "Juan Fernández", "Puchuncaví", "Quintero", "Viña del Mar", "Isla de Pascua", "Los Andes", "Calle Larga", "Rinconada", "San Esteban", "La Ligua", "Cabildo", "Papudo", "Petorca", "Zapallar", "Quillota", "Calera", "Hijuelas", "La Cruz", "Nogales", "San Antonio", "Algarrobo", "Cartagena", "El Quisco", "El Tabo", "Santo Domingo", "San Felipe", "Catemu", "Llaillay", "Panquehue", "Putaendo", "Santa María", "Quilpué", "Limache", "Olmué", "Villa Alemana"]
     },
     {
-        "region": "Región del Libertador Gral. Bernardo O’Higgins",
+        "region": "Región del Libertador Gral. Bernardo O'Higgins",
         "comunas": ["Rancagua", "Codegua", "Coinco", "Coltauco", "Doñihue", "Graneros", "Las Cabras", "Machalí", "Malloa", "Mostazal", "Olivar", "Peumo", "Pichidegua", "Quinta de Tilcoco", "Rengo", "Requínoa", "San Vicente", "Pichilemu", "La Estrella", "Litueche", "Marchihue", "Navidad", "Paredones", "San Fernando", "Chépica", "Chimbarongo", "Lolol", "Nancagua", "Palmilla", "Peralillo", "Placilla", "Pumanque", "Santa Cruz"]
     },
     {
@@ -165,7 +168,7 @@ const datosRegionComuna = [
     },
     {
         "region": "Región Aisén del Gral. Carlos Ibáñez del Campo",
-        "comunas": ["Coihaique", "Lago Verde", "Aisén", "Cisnes", "Guaitecas", "Cochrane", "O’Higgins", "Tortel", "Chile Chico", "Río Ibáñez"]
+        "comunas": ["Coihaique", "Lago Verde", "Aisén", "Cisnes", "Guaitecas", "Cochrane", "O'Higgins", "Tortel", "Chile Chico", "Río Ibáñez"]
     },
     {
         "region": "Región de Magallanes y de la Antártica Chilena",
@@ -176,6 +179,7 @@ const datosRegionComuna = [
         "comunas": ["Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "Santiago", "San Joaquín", "San Miguel", "San Ramón", "Vitacura", "Puente Alto", "Pirque", "San José de Maipo", "Colina", "Lampa", "Tiltil", "San Bernardo", "Buin", "Calera de Tango", "Paine", "Melipilla", "Alhué", "Curacaví", "María Pinto", "San Pedro", "Talagante", "El Monte", "Isla de Maipo", "Padre Hurtado", "Peñaflor"]
      }
 ]
+
 
 // --- Funciones para alterar el HTML ---
 
