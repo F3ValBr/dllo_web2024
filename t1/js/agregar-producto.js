@@ -277,6 +277,11 @@ selectorRegion.addEventListener('change', seleccionComunasPorRegion);
 const handleFormSubmit = (event) => {
     console.log('Validando formulario...');
 
+    // Obtiene los campos del formulario
+    const elegirProductoInput = document.getElementById('choose-product');
+    const regionInput = document.getElementById('selectorRegion');
+    const comunaInput = document.getElementById('selectorComuna');
+
     const descripcionInput = document.getElementById('descripcion');
     const nombreInput = document.getElementById('nombre');
     const emailInput = document.getElementById('email');
@@ -292,6 +297,9 @@ const handleFormSubmit = (event) => {
     if (!validarSeleccion()) {
         isValid = false;
         errorMessage += 'Por favor, selecciona al menos una fruta o verdura.\n';
+        elegirProductoInput.style.borderColor = "red";
+    } else {
+        elegirProductoInput.style.borderColor = "";
     }
 
     if (!validarFotos()) {
@@ -302,6 +310,9 @@ const handleFormSubmit = (event) => {
     if (!validateDescription(descripcionInput.value)) {
         isValid = false;
         errorMessage += 'Por favor, ingresa una descripción válida (menos de 200 caracteres).\n';
+        descripcionInput.style.borderColor = "red";
+    } else {
+        descripcionInput.style.borderColor = "";
     }
 
     if (!validarNoMasDeTresFotos()) {
@@ -312,27 +323,42 @@ const handleFormSubmit = (event) => {
     if (!validarRegion()) {
         isValid = false;
         errorMessage += 'Por favor, selecciona una región.\n';
+        regionInput.style.borderColor = "red";
+    } else {
+        regionInput.style.borderColor = "";
     }
 
     if (!validarComuna()) {
         isValid = false;
         errorMessage += 'Por favor, selecciona una comuna.\n';
+        comunaInput.style.borderColor = "red";
+    } else {
+        comunaInput.style.borderColor = "";
     }
 
     if (!validateName(nombreInput.value)) {
         isValid = false;
         errorMessage += 'Por favor, ingresa un nombre válido (3 caracteres mínimo).\n';
+        nombreInput.style.borderColor = "red";
+    } else {
+        nombreInput.style.borderColor = "";
     }
 
     if (!validateEmail(emailInput.value)) {
         isValid = false;
         errorMessage += 'Por favor, ingresa un correo electrónico válido.\n';
+        emailInput.style.borderColor = "red";
+    } else {
+        emailInput.style.borderColor = "";
     }
 
     if (!validatePhone(telefonoInput.value)) {
         isValid = false;
         errorMessage += 'Por favor, ingresa un número de teléfono válido.\n';
-    }    
+        telefonoInput.style.borderColor = "red";
+    } else {
+        telefonoInput.style.borderColor = "";
+    }
 
     // Manejar errores o redirigir a la página de confesiones
     if (!isValid) {

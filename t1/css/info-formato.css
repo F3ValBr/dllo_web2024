@@ -75,7 +75,8 @@ h2 span, h3 span {
     margin: auto;
     display: block;
     width: 80%;
-    max-width: 1280px; /* Ancho máximo para la imagen */
+    min-width: 1280px; /* Ancho min para la imagen */
+    min-height: 1024px; /* Alto min para la imagen */
 }
 
 .cerrar {
