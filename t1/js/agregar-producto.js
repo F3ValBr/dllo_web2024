@@ -34,8 +34,8 @@ const validarSeleccion = () => {
 
 const limitarCheckbox = (evento) => {
     let checkedCheckboxes = productosCheckboxContainer.querySelectorAll('input[type="checkbox"]:checked');
-    const textoModal = document.getElementById("textoModal"); // Asegúrate de que este ID corresponda al elemento que mostrará el mensaje en tu modal
-    const modal = document.getElementById("modalModificable"); // Y este ID al contenedor del modal
+    const textoModal = document.getElementById("textoModal");
+    const modal = document.getElementById("modalModificable");
 
     if (checkedCheckboxes.length > 5) {
         evento.target.checked = false;
@@ -225,9 +225,7 @@ const selectTipoProd = (event) => {
 };
 
 tipoProdSelect.addEventListener("change", selectTipoProd);
-//-------
-
-
+//------------------------------------------------------------
 
 const agregarFotoProducto = () => {
     const contenedorFotos = document.getElementById('contenedorFotos');
@@ -244,8 +242,6 @@ const agregarFotoProducto = () => {
         contenedorFotos.appendChild(nuevoCampo);
     }
 }
-
-
 
 // Función para limpiar las opciones de un selector
 const limpiarSelector = (selector) => {
@@ -278,27 +274,6 @@ const seleccionComunasPorRegion = () => {
 
 selectorRegion.addEventListener('change', seleccionComunasPorRegion);
 
-function mostrarMensajeDeExito() {
-    // Limpia el contenedor del formulario
-    const contenedorFormulario = document.getElementById('form-envio');
-    contenedorFormulario.textContent = ''; // Esto elimina todos los hijos del elemento
-
-    // Crea el mensaje de éxito
-    const mensajeExito = document.createElement('p');
-    mensajeExito.textContent = 'Hemos recibido el registro de producto. Muchas gracias.';
-
-    // Crea el botón para volver
-    const botonVolver = document.createElement('button');
-    botonVolver.textContent = 'Volver a la portada';
-    botonVolver.addEventListener('click', function() {
-        window.location.href = '../html/index.html';
-    });
-
-    // Añade el mensaje de éxito y el botón al contenedor
-    contenedorFormulario.appendChild(mensajeExito);
-    contenedorFormulario.appendChild(botonVolver);
-}
-
 const handleFormSubmit = (event) => {
     console.log('Validando formulario...');
 
@@ -308,6 +283,7 @@ const handleFormSubmit = (event) => {
     const telefonoInput = document.getElementById('phone');
     const textoEnModal = document.getElementById('textoModal');
     const modalHTML = document.getElementById('modalModificable');
+    const modalBotonCerrar = document.getElementById('cerrarModal');
 
     let isValid = true;
     let errorMessage = '';
@@ -360,9 +336,10 @@ const handleFormSubmit = (event) => {
 
     // Manejar errores o redirigir a la página de confesiones
     if (!isValid) {
+        // Configura el mensaje de error en el modal en lugar de usar alert()
         textoEnModal.innerText = errorMessage.replace(/\n/g, "\n\n");
+        modalBotonCerrar.innerText = 'Volver al formulario';
         modalHTML.style.display = 'block';
-        //alert(errorMessage); // Reemplazar con un mensaje de error más amigable
         return; // Indica que la validación falló
     } else {
         document.getElementById('modalConfirmacion').style.display = 'block';
@@ -378,18 +355,37 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 });
 
-document.getElementById('confirmarRegistro').addEventListener('click', function() {
-    // Aquí puedes agregar la lógica para manejar la confirmación de registro
+const modalBotonCerrarHandler = () => {
+    window.location.href = '../html/index.html';
+};
 
-    // Por ejemplo, limpiar el formulario o enviar los datos
-    alert('Hemos recibido el registro de producto. Muchas gracias.');
-    window.location.href = 'index.html'; // Redirige a la portada o a otro mensaje de éxito
+function mostrarMensajeDeExito() {
+    // Cierra el modal de confirmación
+    document.getElementById('modalConfirmacion').style.display = 'none';
+
+    // Obtiene el modal de éxito y su botón de cerrar
+    const modalHTML = document.getElementById('modalRedireccion');
+    const modalBotonCerrar = document.getElementById('cerrarModalRedireccion');
+
+    // Muestra el modal de éxito
+    modalHTML.style.display = 'block';
+
+    // Crea el listener del boton para volver a la portada
+    modalBotonCerrar.removeEventListener('click', modalBotonCerrarHandler);
+
+    modalBotonCerrar.addEventListener('click', modalBotonCerrarHandler);
+}
+
+document.getElementById('confirmarRegistro').addEventListener('click', function() {
+    // Aquí se puede enviar el formulario a un servidor o realizar cualquier otra acción necesaria
+    mostrarMensajeDeExito();
 });
 
 document.getElementById('cancelarRegistro').addEventListener('click', function() {
     // Simplemente cierra el modal y permite al usuario ajustar el formulario como desee
     document.getElementById('modalConfirmacion').style.display = 'none';
 });
+
 // Manejador de eventos para el envío del formulario
 
 const checkFormulario = document.getElementById('envio');
