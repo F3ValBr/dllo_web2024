@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Informacion de Producto</title>
         <link rel="stylesheet" type="text/css" href="../css/index.css">
+        <link rel="stylesheet" type="text/css" href="../css/info-formato.css">
     </head>
     <body>
         <!-- Navbar -->
@@ -11,10 +12,37 @@
             <a href="index.html" class="nav-button">Inicio</a>
             Lo Vegador On-Line
         </div>
-  
 
-        <div class="footer">
-            <p>Tarea 1 - CC5002 Desarrollo de Aplicaciones Web - Felipe Valdebenito Bravo</p>
+        <div id="miModal" class="modal">
+            <span class="cerrar">&times;</span>
+            <img class="modal-contenido" id="img01">
+            <div id="caption"></div>
         </div>
+  
+        <div class="container">
+            <h1>Información del Producto</h1>
+            <div class="detalle-producto">
+                <h2>Tipo de Producto: <span>Fruta</span></h2>
+                <h3>Productos: <span>Frutillas, Cerezas, Moras</span></h3>
+                <p>Se venden exquisitas frutas traidas del interior de la región, bien baratas, ideales para postres y mermeladas. Vendo principalmente en Curicó, pero tambien puedo hacer envios personalmente a zonas cercanas.</p>
+                <div class="galeria-imagenes">
+                    <img src="../resources/img/640_480_formato/frutillas_show.jpg" alt="Frutillas" onclick="abrirModal(this)">
+                    <img src="../resources/img/640_480_formato/cerezas_show.jpg" alt="Cerezas" onclick="abrirModal(this)">
+                    <img src="../resources/img/640_480_formato/moras_show.jpg" alt="Moras" onclick="abrirModal(this)">
+                </div>
+                <p>Ubicación: Comuna de Curicó, Región del Maule</p>
+            </div>
+            <div class="detalle-productor">
+                <h2>Información del Productor</h2>
+                <p>Nombre: Juan Pérez</p>
+                <p>Email: juanperez@hotmail.com</p>
+                <p>Teléfono: +56 9 8888 8889</p>
+            </div>
+        </div>
+
+        <script src="../js/info.js"></script>
     </body>
+    <footer>
+        <p>Tarea 1 - CC5002 Desarrollo de Aplicaciones Web - Felipe Valdebenito Bravo</p>
+    </footer>
 </html>

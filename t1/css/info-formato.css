@@ -1,0 +1,90 @@
+.galeria-imagenes {
+    display: flex;
+    overflow-x: auto;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #f0f0f0; /* Color de fondo del cajón */
+}
+
+.galeria-imagenes img {
+    flex: 0 0 auto; /* No permite que las imágenes se encojan o crezcan */
+    width: 640px;
+    height: 480px;
+    margin-right: 10px; /* Espacio entre imágenes */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+h2 span, h3 span {
+    color: #666;
+}
+
+.detalle-producto, .detalle-productor {
+    margin-bottom: 20px;
+}
+
+.fotos-productos img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.fotos-productos {
+    margin: 20px 0;
+}
+
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en todo el sitio */
+    z-index: 1; /* Situado arriba */
+    padding-top: 100px; /* Ubicación del modal */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    overflow: auto; /* Habilita desplazamiento si es necesario */
+    background-color: rgb(0,0,0); /* Color de fondo */
+    background-color: rgba(0,0,0,0.9); /* Negro con opacidad */
+}
+
+.modal-contenido {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1280px; /* Ancho máximo para la imagen */
+}
+
+.cerrar {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
