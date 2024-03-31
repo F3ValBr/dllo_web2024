@@ -82,27 +82,27 @@ verduras = verduras.sort();
 
 const datosRegionComuna = [
     {
-        "region": "Arica y Parinacota",
+        "region": "Región de Arica y Parinacota",
         "comunas": ["Arica", "Camarones", "Putre", "General Lagos"]
     },
     {
-        "region": "Tarapacá",
+        "region": "Región de Tarapacá",
         "comunas": ["Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica"]
     },
     {
-        "region": "Antofagasta",
+        "region": "Región de Antofagasta",
         "comunas": ["Antofagasta", "Mejillones", "Sierra Gorda", "Taltal", "Calama", "Ollagüe", "San Pedro de Atacama", "Tocopilla", "María Elena"]
     },
     {
-        "region": "Atacama",
+        "region": "Región de Atacama",
         "comunas": ["Copiapó", "Caldera", "Tierra Amarilla", "Chañaral", "Diego de Almagro", "Vallenar", "Alto del Carmen", "Freirina", "Huasco"]
     },
     {
-        "region": "Coquimbo",
+        "region": "Región de Coquimbo",
         "comunas": ["La Serena", "Coquimbo", "Andacollo", "La Higuera", "Paiguano", "Vicuña", "Illapel", "Canela", "Los Vilos", "Salamanca", "Ovalle", "Combarbalá", "Monte Patria", "Punitaqui", "Río Hurtado"]
     },
     {
-        "region": "Valparaíso",
+        "region": "Región de Valparaíso",
         "comunas": ["Valparaíso", "Casablanca", "Concón", "Juan Fernández", "Puchuncaví", "Quintero", "Viña del Mar", "Isla de Pascua", "Los Andes", "Calle Larga", "Rinconada", "San Esteban", "La Ligua", "Cabildo", "Papudo", "Petorca", "Zapallar", "Quillota", "Calera", "Hijuelas", "La Cruz", "Nogales", "San Antonio", "Algarrobo", "Cartagena", "El Quisco", "El Tabo", "Santo Domingo", "San Felipe", "Catemu", "Llaillay", "Panquehue", "Putaendo", "Santa María", "Quilpué", "Limache", "Olmué", "Villa Alemana"]
     },
     {
@@ -324,6 +324,11 @@ function mostrarMensajeDeExito() {
 document.getElementById('confirmarRegistro').addEventListener('click', function() {
     // Aquí se puede enviar el formulario a un servidor o realizar cualquier otra acción necesaria
     mostrarMensajeDeExito();
+});
+
+document.getElementById('cancelarRegistro').addEventListener('click', function() {
+    // Simplemente cierra el modal y permite al usuario ajustar el formulario como desee
+    document.getElementById('modalConfirmacion').style.display = 'none';
 });
 
 // Manejador de eventos para el envío del formulario

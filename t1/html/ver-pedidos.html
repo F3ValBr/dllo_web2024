@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Ver Pedidos</title>
         <link rel="stylesheet" type="text/css" href="../css/index.css">
+        <link rel="stylesheet" type="text/css" href="../css/ver-formato.css">
     </head>
     <body>
         <!-- Navbar -->
@@ -12,6 +13,67 @@
             Lo Vegador On-Line
         </div>
 
+        <h2 style="text-align: center;">Productos Agrícolas por Región y Comuna</h2>
+
+        <table id="productosTable" style="margin-bottom: 25%;">
+            <tr>
+                <th>Tipo</th>
+                <th>Productos</th>
+                <th>Región</th>
+                <th>Comuna</th>
+                <th>Nombre comprador</th>
+            </tr>
+            <tr data-href="informacion-pedido.html">
+                <td>Frutas</td>
+                <td class="descripcion-cell">
+                    - Higo <br>
+                    - Uva
+                </td>
+                <td>Region del Biobío</td>
+                <td>Coronel</td>
+                <td>Javier Fonseca</td>
+            </tr>
+            <tr data-href="informacion-pedido.html">
+                <td>Verduras</td>
+                <td class="descripcion-cell">
+                    - Tomate <br>
+                    - Cebolla
+                </td>
+                <td>Región de Antofagasta</td>
+                <td>Calama</td>
+                <td>Camila Astudillo</td>
+            </tr>
+            <tr data-href="informacion-pedido.html">
+                <td>Verduras</td>
+                <td class="descripcion-cell">
+                    - Lechuga
+                </td>
+                <td>Región Aisén del Gral. Carlos Ibáñez del Campo</td>
+                <td>Cochrane</td>
+                <td>Domingo Martinez</td>
+            </tr>
+            <tr data-href="informacion-pedido.html">
+                <td>Frutas</td>
+                <td class="descripcion-cell">
+                    - Palta <br>
+                    - Limón
+                </td>
+                <td>Región de Valparaíso</td>
+                <td>Putaendo</td>
+                <td>Ernestina Carvajal</td>
+            </tr>
+            <tr data-href="informacion-pedido.html">
+                <td>Verduras</td>
+                <td class="descripcion-cell">
+                    - Espinaca
+                </td>
+                <td>Región de Ñuble</td>
+                <td>Quirihue</td>
+                <td>Alonso Escudero</td>
+            </tr>
+        </table>
+
+        <script src="../js/mostrar.js"></script>
     </body>
     <footer>
         <p>Tarea 1 - CC5002 Desarrollo de Aplicaciones Web - Felipe Valdebenito Bravo</p>
