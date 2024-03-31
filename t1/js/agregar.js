@@ -1,5 +1,12 @@
 // Validadores del formulario
 
+const validateDescription = description => {
+    if (description.trim() === '') {
+        return true;
+    }
+    return description && description.length < 200;
+};
+
 const validateName = name => name && name.length > 3 && name.length < 80;
 
 const validateEmail = email => {
@@ -9,6 +16,9 @@ const validateEmail = email => {
 };
 
 const validatePhone = phone => {
+    if (phone.trim() === '') {
+        return true;
+    }
     const phoneRegex = /^\+?\d{1,3}?[-. ]?\(?\d{2,3}\)?[-. ]?\d{3}[-. ]?\d{4}$/;
     return phoneRegex.test(phone);
 };
@@ -24,9 +34,15 @@ const validarSeleccion = () => {
 
 const limitarCheckbox = (evento) => {
     let checkedCheckboxes = productosCheckboxContainer.querySelectorAll('input[type="checkbox"]:checked');
+    const textoModal = document.getElementById("textoModal"); // Asegúrate de que este ID corresponda al elemento que mostrará el mensaje en tu modal
+    const modal = document.getElementById("modalModificable"); // Y este ID al contenedor del modal
+
     if (checkedCheckboxes.length > 5) {
         evento.target.checked = false;
-        alert("Solo puedes seleccionar un máximo de 5 productos.");
+        // Configura el mensaje de error en el modal en lugar de usar alert()
+        textoModal.innerText = "Solo puedes seleccionar un máximo de 5 productos.";
+        // Muestra el modal
+        modal.style.display = 'block';
     }
 };
 
@@ -286,9 +302,12 @@ function mostrarMensajeDeExito() {
 const handleFormSubmit = (event) => {
     console.log('Validando formulario...');
 
+    const descripcionInput = document.getElementById('descripcion');
     const nombreInput = document.getElementById('nombre');
     const emailInput = document.getElementById('email');
     const telefonoInput = document.getElementById('phone');
+    const textoEnModal = document.getElementById('textoModal');
+    const modalHTML = document.getElementById('modalModificable');
 
     let isValid = true;
     let errorMessage = '';
@@ -302,6 +321,11 @@ const handleFormSubmit = (event) => {
     if (!validarFotos()) {
         isValid = false;
         errorMessage += 'Por favor, selecciona al menos una foto.\n';
+    }
+
+    if (!validateDescription(descripcionInput.value)) {
+        isValid = false;
+        errorMessage += 'Por favor, ingresa una descripción válida (menos de 200 caracteres).\n';
     }
 
     if (!validarNoMasDeTresFotos()) {
@@ -336,12 +360,23 @@ const handleFormSubmit = (event) => {
 
     // Manejar errores o redirigir a la página de confesiones
     if (!isValid) {
-        alert(errorMessage); // Reemplazar con un mensaje de error más amigable
+        textoEnModal.innerText = errorMessage.replace(/\n/g, "\n\n");
+        modalHTML.style.display = 'block';
+        //alert(errorMessage); // Reemplazar con un mensaje de error más amigable
         return; // Indica que la validación falló
     } else {
         document.getElementById('modalConfirmacion').style.display = 'block';
     }
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    var btnCerrar = document.getElementById('cerrarModal');
+    if (btnCerrar) {
+        btnCerrar.addEventListener('click', function() {
+            document.getElementById('modalModificable').style.display = 'none';
+        });
+    }
+});
 
 document.getElementById('confirmarRegistro').addEventListener('click', function() {
     // Aquí puedes agregar la lógica para manejar la confirmación de registro

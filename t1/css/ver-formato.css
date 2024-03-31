@@ -1,6 +1,7 @@
 table {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
+    margin: 0 auto;
 }
 th, td {
     border: 1px solid black;
@@ -11,7 +12,7 @@ th {
     background-color: #f2f2f2;
 }
 img {
-    width: 100px;
+    width: 120px;
     height: auto;
 }
 /* Estilo para cambiar el cursor a pointer */
@@ -21,4 +22,10 @@ tr[data-href] {
 /* Estilo para cambio de color al pasar el mouse */
 tr[data-href]:hover {
     background-color: #e7f3fe;
+}
+
+/* Estilo para celdas de descripción */
+.descripcion-cell {
+    max-width: 450px; /* Ajusta esto según la anchura máxima deseada */
+    word-wrap: break-word; /* Asegura que el texto se ajuste dentro de la celda */
 }
