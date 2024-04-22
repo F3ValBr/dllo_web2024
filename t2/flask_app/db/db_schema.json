@@ -1,0 +1,18 @@
+{
+    "get_location_by_id_com":"SELECT COM.nombre, REG.nombre FROM comuna COM, region REG WHERE COM.region_id = REG.id AND COM.id = %s;",
+    "get_regions": "SELECT id, nombre FROM region;",
+    "get_comunas_by_region_id": "SELECT * FROM comuna WHERE region_id = %s ORDER BY nombre ASC;",
+    "get_comunas": "SELECT * FROM comuna;",
+    "get_frutas": "SELECT * FROM tipo_verdura_fruta WHERE id <= 37 ORDER BY nombre;",
+    "get_verduras": "SELECT * FROM tipo_verdura_fruta WHERE id > 37 ORDER BY nombre;",
+    "get_fruta_verdura_by_id": "SELECT * FROM tipo_verdura_fruta WHERE id = %s;",
+    "insertar_producto": "INSERT INTO producto (tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor) VALUES (%s,%s,%s,%s,%s,%s);",
+    "insertar_prod_fruta_verdura": "INSERT INTO producto_verdura_fruta (producto_id, tipo_verdura_fruta_id) VALUES (%s,%s);",
+    "insertar_foto": "INSERT INTO foto (ruta_archivo, nombre_archivo, producto_id) VALUES (%s,%s,%s);",
+    "get_productos": "SELECT id, tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor FROM producto ORDER BY id DESC;",
+    "get_productos_de_a_5": "SELECT id, tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor FROM producto ORDER BY id DESC LIMIT %s, 5;",
+    "get_producto_by_id": "SELECT id, tipo, descripcion, comuna_id, nombre_productor, email_productor, celular_productor FROM producto WHERE id = %s;",
+    "get_fotos_by_producto_id_y_ruta": "SELECT ruta_archivo, nombre_archivo FROM foto WHERE producto_id = %s AND ruta_archivo LIKE %s;",
+    "get_prod_verdura_fruta_by_producto_id": "SELECT TVF.nombre FROM tipo_verdura_fruta TVF, producto_verdura_fruta PVF WHERE TVF.id = PVF.tipo_verdura_fruta_id AND PVF.producto_id = %s;",
+    "contador_productos": "SELECT COUNT(*) FROM producto;"
+}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Informacion de Producto{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/info-formato.css') }}">
+{% endblock %}
+
+{% block navbar %}
+    <a href="{{ url_for('index') }}" class="nav-button">Inicio</a>
+{% endblock %}
+
+{% block content %}
+    <!-- Modal de imagen -->
+    <div id="miModal" class="modal">
+        <span class="cerrar">&times;</span>
+        <img class="modal-contenido" id="img-prod" src="/" alt="/">
+        <div id="caption"></div>
+    </div>
+
+    <!-- Información del producto -->
+    {% if data %}
+    <div class="container">
+        <h1>Información del Producto</h1>
+        <div class="detalle-producto">
+            <h2>Tipo de Producto: <span>{{ data.tipo }}</span></h2>
+            <h3>Productos: <span>{{ data.productos | join(', ') }}</span></h3>
+            <p>{{ data.descripcion }}</p>
+            <div class="galeria-imagenes">
+                {% for foto in data.fotos_640_480 %}
+                    <img src="/{{ foto }}" alt="{{ foto }}" onclick="abrirModal(this, '/{{ data.fotos_1280_1024[loop.index0] }}')">
+                {% endfor %}
+            </div>
+            <p>Ubicación: Comuna de {{ data.comuna }}, {{ data.region }}</p>
+        </div>
+        <div class="detalle-productor">
+            <h2>Información del Productor</h2>
+            <p>Nombre: {{ data.nombre_productor }}</p>
+            <p>Email: {{ data.email_productor }}</p>
+            <p>Teléfono: {{ data.celular_productor }}</p>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/info.js') }}"></script>
+{% endblock %}

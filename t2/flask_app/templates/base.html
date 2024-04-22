@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+        <!-- Navbar -->
+        <div class="navbar">
+            {% block navbar %}{% endblock %}
+            Lo Vegador On-Line
+        </div>
+        {% block content %}{% endblock %}
+        
+        {% block scripts %}{% endblock %}
+        <footer>
+            <p>Tarea 2 - CC5002 Desarrollo de Aplicaciones Web - Felipe Valdebenito Bravo</p>
+        </footer>
+    </body>
+</html>
