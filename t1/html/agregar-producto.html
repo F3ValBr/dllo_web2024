@@ -58,15 +58,15 @@
                     </div>
                     <div class="grupo-input">
                         <label for="nombre">Nombre: (*)</label>
-                        <input type="text" id="nombre" name="nombre" minlength="3" placeholder="Escriba su nombre (min. 3 - max. 80 caract.)" required>
+                        <input type="text" id="nombre" name="nombre" minlength="3" maxlength="80" size="80"  placeholder="Escriba su nombre (min. 3 - max. 80 caract.)" required>
                     </div>
                     <div class="grupo-input">
                         <label for="email">Correo electrónico: (*)</label>
-                        <input id="email" name="email" type="email" placeholder="Escriba su correo electrónico (ej.: johndoe@mail.dot)" required>
+                        <input id="email" name="email" type="email" size="30" placeholder="Escriba su correo electrónico (ej.: johndoe@mail.dot)" required>
                     </div>
                     <div class="grupo-input">
                         <label for="phone">Nro. de teléfono:</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Escriba su número de teléfono (ej.: +56912345678)">
+                        <input type="tel" id="phone" name="phone" size="15" placeholder="Escriba su número de teléfono (ej.: +56912345678)">
                     </div>
                     <div id="form-envio">
                         <button type="button" id="envio">
@@ -103,8 +103,9 @@
         </div>
 
         <script src="../js/agregar-producto.js"></script>
+
+        <footer>
+            <p>Tarea 1 - CC5002 Desarrollo de Aplicaciones Web - Felipe Valdebenito Bravo</p>
+        </footer>
     </body>
-    <footer>
-        <p>Tarea 1 - CC5002 Desarrollo de Aplicaciones Web - Felipe Valdebenito Bravo</p>
-    </footer>
 </html>
