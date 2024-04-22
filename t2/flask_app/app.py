@@ -195,5 +195,9 @@ def agregar_pedido():
 def ver_pedidos():
     return render_template('ver-pedidos.html')
 
+@app.route('/informacion-pedido')
+def informacion_pedido():
+    return render_template('informacion-pedido.html')
+
 if __name__ == "__main__":
     app.run(debug=True)

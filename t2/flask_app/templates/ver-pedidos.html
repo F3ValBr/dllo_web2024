@@ -21,7 +21,7 @@
             <th>Comuna</th>
             <th>Nombre comprador</th>
         </tr>
-        <tr data-href="informacion-pedido.html">
+        <tr data-href="/informacion-pedido">
             <td>Frutas</td>
             <td class="descripcion-cell">
                 - Higo <br>
@@ -31,7 +31,7 @@
             <td>Coronel</td>
             <td>Javier Fonseca</td>
         </tr>
-        <tr data-href="informacion-pedido.html">
+        <tr data-href="/informacion-pedido">
             <td>Verduras</td>
             <td class="descripcion-cell">
                 - Tomate <br>
@@ -41,7 +41,7 @@
             <td>Calama</td>
             <td>Camila Astudillo</td>
         </tr>
-        <tr data-href="informacion-pedido.html">
+        <tr data-href="/informacion-pedido">
             <td>Verduras</td>
             <td class="descripcion-cell">
                 - Lechuga
@@ -50,7 +50,7 @@
             <td>Cochrane</td>
             <td>Domingo Martinez</td>
         </tr>
-        <tr data-href="informacion-pedido.html">
+        <tr data-href="/informacion-pedido">
             <td>Frutas</td>
             <td class="descripcion-cell">
                 - Palta <br>
@@ -60,7 +60,7 @@
             <td>Putaendo</td>
             <td>Ernestina Carvajal</td>
         </tr>
-        <tr data-href="informacion-pedido.html">
+        <tr data-href="/informacion-pedido">
             <td>Verduras</td>
             <td class="descripcion-cell">
                 - Espinaca
@@ -69,19 +69,6 @@
             <td>Quirihue</td>
             <td>Alonso Escudero</td>
         </tr>
-        {% for pedido in pedidos %}
-            <tr data-href="informacion-pedido.html">
-                <td>{{ pedido.tipo }}</td>
-                <td class="descripcion-cell">
-                    {% for producto in pedido.productos %}
-                        - {{ producto }} <br>
-                    {% endfor %}
-                </td>
-                <td>{{ pedido.region }}</td>
-                <td>{{ pedido.comuna }}</td>
-                <td>{{ pedido.nombre_comprador }}</td>
-            </tr>
-        {% endfor %}
     </table>
 {% endblock %}
 
