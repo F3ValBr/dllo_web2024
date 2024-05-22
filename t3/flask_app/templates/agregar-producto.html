@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}Agregar Producto{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/agregar-formato.css') }}">
+{% endblock %}
+
+{% block navbar %}
+    <a href="{{ url_for('index') }}" class="nav-button">Inicio</a>
+{% endblock %}
+
+{% block content %}
+    <!-- Formulario para agregar un producto -->
+    <div class="container" style="margin-bottom: 14.5%;">
+        <h1 style="text-align: center;">Agrega producto(s) a proveer</h1>
+        <h3 style="text-align: center;">Añada la informacion de lo que desee vender.</h3>
+        <div class="formulario">
+            <form id="producto-form" action="{{ url_for('agregar_producto') }}" method="post" enctype="multipart/form-data">
+                <div class="grupo-input">
+                    <label for="choose-product">Tipo de producto: (*)</label>
+                    <select id="choose-product" name="choose-product">
+                        <option value="" selected disabled hidden>Seleccionar una opción</option>
+                        <option value="fruta">Frutas</option>
+                        <option value="verdura">Verduras</option>
+                    </select>
+                </div>
+                <div class="grupo-input">
+                    <div id="labelProductosContainer" style="display: none;">
+                        <label>Productos:</label>
+                    </div>
+                    <div id="productosCheckboxContainer" class="grid-container">
+                        <!-- Aquí se agregarán los productos disponibles -->
+                    </div>
+                </div>
+                <div class="grupo-input">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea name="descripcion" id="descripcion" cols="50" rows="4" placeholder="Añada una descripcion de su producto (max. 200 caracteres)"></textarea>
+                </div>
+                <div class="grupo-input" id="contenedorFotos">
+                    <label for="foto1">Sube fotos relacionadas (mín. 1 - max. 3): (*)</label>
+                    <input type="file" id="foto1" name="fotos[]" accept="image/*" required>
+                    <!-- Se añaden uno o dos campos más de fotos de acuerdo a la reaccion del onchange -->
+                    <button type="button" id="btnAgregarFoto" onclick="agregarFotoProducto()">Añadir nueva foto</button>
+                    <button type="button" id="btnQuitarFoto" onclick="quitarFotoProducto()" style="display: none;">Quitar última foto</button>
+                </div>
+                <div class="grupo-input">
+                    <label for="selectorRegion">Región: (*)</label>
+                    <select id="selectorRegion" name="selectorRegion">
+                        <option value="" selected disabled hidden>Seleccione una Región</option>
+                        {% for region in regiones %}
+                            <!-- region[0] == id, region[1] == nombre -->
+                            <option value="{{ region[0] }}">{{ region[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="grupo-input">
+                    <label for="selectorComuna">Comuna: (*)</label>
+                    <select id="selectorComuna" name="selectorComuna">
+                        <option value="" selected disabled hidden>Seleccione una Comuna</option>
+                        <!-- Las opciones se llenarán con JavaScript -->
+                    </select>
+                </div>
+                <div class="grupo-input">
+                    <label for="nombre">Nombre: (*)</label>
+                    <input type="text" id="nombre" name="nombre" minlength="3" maxlength="80" size="80" placeholder="Escriba su nombre (min. 3 - max. 80 caract.)" required>
+                </div>
+                <div class="grupo-input">
+                    <label for="email">Correo electrónico: (*)</label>
+                    <input id="email" name="email" type="email" size="30" placeholder="Escriba su correo electrónico (ej.: johndoe@mail.dot)" required>
+                </div>
+                <div class="grupo-input">
+                    <label for="phone">Nro. de teléfono:</label>
+                    <input type="tel" id="phone" name="phone" size="15" placeholder="Escriba su número de teléfono (ej.: +56912345678)">
+                </div>
+                <div id="form-envio">
+                    <button type="button" id="envio">
+                        Agregar producto(s)
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Modal de confirmación -->
+        <div id="modalConfirmacion" class="modal">
+            <div class="modal-content">
+                <p>¿Confirma el registro de este producto?</p>
+                <button type="button" id="confirmarRegistro">Sí, confirmo</button>
+                <button id="cancelarRegistro">No, quiero volver al formulario</button>
+            </div>
+        </div>
+
+        <!-- Modal de mensaje -->
+        <div id="modalModificable" class="modal">
+            <div class="modal-content">
+                <p id="textoModal">Este es un mensaje predeterminado.</p>
+                <button id="cerrarModal">Volver</button>
+            </div>
+        </div>
+
+        <!-- Modal de redirección -->
+        <div id="modalRedireccion" class="modal" style="display: none;">
+            <div class="modal-content">
+                <p id="textoModalRedireccion">Hemos recibido el registro de producto. Muchas gracias.</p>
+                <button id="cerrarModalRedireccion">Volver al inicio</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/agregar-producto.js') }}"></script>
+{% endblock %}

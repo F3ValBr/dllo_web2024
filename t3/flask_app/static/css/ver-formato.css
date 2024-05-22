@@ -1,0 +1,58 @@
+table {
+    width: 70%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+img {
+    width: 120px;
+    height: auto;
+}
+
+/* Estilo para cambiar el cursor a pointer */
+tr[data-href] {
+    cursor: pointer;
+}
+
+/* Estilo para cambio de color al pasar el mouse */
+tr[data-href]:hover {
+    background-color: #e7f3fe;
+}
+
+/* Estilo para celdas de descripción */
+.descripcion-cell {
+    max-width: 450px; 
+    word-wrap: break-word; 
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
+}
+
+.pagination a {
+    border: 1px solid #ddd; /* Borde gris claro */
+    padding: 5px 10px; 
+    margin: 0 4px; 
+    text-decoration: none; /* Remover el subrayado de los enlaces */
+    color: black; 
+    background-color: #f2f2f2; 
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+.pagination a.active {
+    background-color: #4CAF50; /* Color de fondo para el botón activo */
+    color: white; /* Color del texto para el botón activo */
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd; 
+}

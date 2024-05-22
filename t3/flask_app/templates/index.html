@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+    <!-- Imagen de frutas y verduras -->
+    <div class="imag-index">
+        <img src="{{ url_for('static', filename='resources/img/eat-fruit-and-vegetables.jpg') }}" alt="Frutas_y_verduras">
+    </div>
+    <!-- Botones para acceder a los demas html -->
+    <div class="button-container" style="margin-bottom: 18%;">
+        <div class="row">
+            <button class="button" id="agregar-pedido">Agregar pedido</button>
+            <button class="button" id="agregar-producto">Agregar producto</button>
+        </div>
+        <div class="row">
+            <button class="button" id="ver-pedidos">Ver pedidos</button>
+            <button class="button" id="ver-productos">Ver productos</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}

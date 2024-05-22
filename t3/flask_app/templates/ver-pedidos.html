@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Ver Pedidos{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ver-formato.css') }}">
+{% endblock %}
+
+{% block navbar %}
+    <a href="{{ url_for('index') }}" class="nav-button">Inicio</a>
+{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;">Productos Agrícolas por Región y Comuna</h2>
+
+    {% if data %}
+    <table id="productosTable">
+        <tr>
+            <th>Tipo</th>
+            <th>Productos</th>
+            <th>Región</th>
+            <th>Comuna</th>
+            <th>Nombre comprador</th>
+        </tr>
+        {% for pedido in data %}
+            <tr data-href="/informacion-pedido/{{ pedido.id }}">
+                <td>{{ pedido.tipo }}</td>
+                <td class="descripcion-cell">
+                    {% for pedido in pedido.pedidos %}
+                        - {{ pedido }} <br>
+                    {% endfor %}
+                </td>
+                <td>{{ pedido.region }}</td>
+                <td>{{ pedido.comuna }}</td>
+                <td>{{ pedido.nombre_comprador }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h3 style="text-align: center;">404 - No encontrado<br>No se han encontrado pedidos para mostrar.</h3>
+    {% endif %}
+
+    <div class="pagination">
+        {% if pagina > 1 %}
+        <a href="?pagina={{ pagina - 1 }}">&laquo; Anterior</a>
+        {% endif %}
+
+        {% for num in range(1, total_pags + 1) %}
+        <a href="?pagina={{ num }}" class="{{ 'active' if num == pagina else '' }}">{{ num }}</a>
+        {% endfor %}
+
+        {% if pagina < total_pags %}
+        <a href="?pagina={{ pagina + 1 }}">Siguiente &raquo;</a>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/mostrar.js') }}"></script>
+{% endblock %}
