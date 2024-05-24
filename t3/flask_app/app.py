@@ -286,5 +286,21 @@ def informacion_pedido(id):
     }
     return render_template('informacion-pedido.html', data = data)
 
+@app.route('/estadisticas')
+def estadisticas():
+    return render_template('estadisticas.html')
+
+@app.route('/estadisticas-productos')
+def estadisticas_productos():
+    data = db.get_contador_productos_por_tipo()
+    productos_data = [{'name': row[0], 'y': row[1]} for row in data]
+    return jsonify(productos_data)
+
+@app.route('/estadisticas-pedidos')
+def estadisticas_pedidos():
+    data = db.get_contador_pedidos_por_comuna()
+    pedidos_data = [{'name': row[0], 'y': row[1]} for row in data]
+    return jsonify(pedidos_data)
+
 if __name__ == "__main__":
     app.run(debug=True)

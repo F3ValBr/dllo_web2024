@@ -187,3 +187,17 @@ def get_ped_verdura_fruta_by_pedido_id(id):
 	ped_verduras = cursor.fetchall()
 	return ped_verduras
 
+def get_contador_productos_por_tipo():
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["contador_productos_por_tipo"])
+	productos = cursor.fetchall()
+	return productos
+
+def get_contador_pedidos_por_comuna():
+	conn = get_conn()
+	cursor = conn.cursor()
+	cursor.execute(QUERY_DICT["contador_pedidos_por_comuna"])
+	pedidos = cursor.fetchall()
+	return pedidos
+

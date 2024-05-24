@@ -21,5 +21,7 @@
     "get_prod_verdura_fruta_by_producto_id": "SELECT TVF.nombre FROM tipo_verdura_fruta TVF, producto_verdura_fruta PVF WHERE TVF.id = PVF.tipo_verdura_fruta_id AND PVF.producto_id = %s;",
     "get_ped_verdura_fruta_by_pedido_id": "SELECT TVF.nombre FROM tipo_verdura_fruta TVF, pedido_verdura_fruta PVF WHERE TVF.id = PVF.tipo_verdura_fruta_id AND PVF.pedido_id = %s;",
     "contador_productos": "SELECT COUNT(*) FROM producto;",
-    "contador_pedidos": "SELECT COUNT(*) FROM pedido;"
+    "contador_pedidos": "SELECT COUNT(*) FROM pedido;",
+    "contador_productos_por_tipo": "SELECT TVF.nombre, COUNT(*) AS total FROM producto_verdura_fruta PVF, tipo_verdura_fruta TVF WHERE PVF.tipo_verdura_fruta_id = TVF.id GROUP BY TVF.nombre;",
+    "contador_pedidos_por_comuna": "SELECT COM.nombre, COUNT(*) AS total FROM pedido PVF, comuna COM WHERE PVF.comuna_id = COM.id GROUP BY COM.nombre;"
 }
