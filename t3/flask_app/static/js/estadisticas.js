@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     fetch('/estadisticas-productos')
         .then(response => response.json())
         .then(data => {
