@@ -29,3 +29,5 @@ campo, sea obligatorio u opcional. Por lo mismo, los campos acompañados con ast
 8.- Para el caso de la validacion del lado del servidor en agregar-pedido, se usa la misma funcion de errores-handler que en agregar-producto,
 con la excepcion de que el parametro que pide el estado de la revision de las fotos se entrega por defecto como True, lo cual evita que la 
 funcion realice alguna accion al respecto.
+
+9.- Se ha elegido el uso de grafico circular para las estadisticas

@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     data: data
                 }]
             });
-        });
+        })
+        .catch(error => console.error("Error:", error));
 
     fetch('/estadisticas-pedidos')
         .then(response => response.json())
@@ -33,5 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     data: data
                 }]
             });
-        });
+        })
+        .catch(error => console.error("Error:", error));
 });
